@@ -1,0 +1,211 @@
+04:07:52 - test_ssh_client - INFO - Setting up...
+04:07:52 - src.ssh_client - DEBUG - Initialized SSHClient for 192.168.56.12 with user adouhani and port 22
+04:07:52 - src.ssh_client - INFO - Attempting to connect to 192.168.56.12 on port 22
+04:07:52 - paramiko.transport - DEBUG - starting thread (client mode): 0xf5d9b730
+04:07:52 - paramiko.transport - DEBUG - Local version/idstring: SSH-2.0-paramiko_2.6.0
+04:07:52 - paramiko.transport - DEBUG - Remote version/idstring: SSH-2.0-OpenSSH_8.2p1 Ubuntu-4ubuntu0.12
+04:07:52 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_8.2p1)
+04:07:52 - paramiko.transport - DEBUG - kex algos:['curve25519-sha256', 'curve25519-sha256@libssh.org', 'ecdh-sha2-nistp256', 'ecdh-sha2-nistp384', 'ecdh-sha2-nistp521', 'diffie-hellman-group-exchange-sha256', 'diffie-hellman-group16-sha512', 'diffie-hellman-group18-sha512', 'diffie-hellman-group14-sha256', 'kex-strict-s-v00@openssh.com'] server key:['rsa-sha2-512', 'rsa-sha2-256', 'ssh-rsa', 'ecdsa-sha2-nistp256', 'ssh-ed25519'] client encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] server encrypt:['chacha20-poly1305@openssh.com', 'aes128-ctr', 'aes192-ctr', 'aes256-ctr', 'aes128-gcm@openssh.com', 'aes256-gcm@openssh.com'] client mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] server mac:['umac-64-etm@openssh.com', 'umac-128-etm@openssh.com', 'hmac-sha2-256-etm@openssh.com', 'hmac-sha2-512-etm@openssh.com', 'hmac-sha1-etm@openssh.com', 'umac-64@openssh.com', 'umac-128@openssh.com', 'hmac-sha2-256', 'hmac-sha2-512', 'hmac-sha1'] client compress:['none', 'zlib@openssh.com'] server compress:['none', 'zlib@openssh.com'] client lang:[''] server lang:[''] kex follows?False
+04:07:52 - paramiko.transport - DEBUG - Strict kex mode: True
+04:07:52 - paramiko.transport - DEBUG - Kex agreed: curve25519-sha256@libssh.org
+04:07:52 - paramiko.transport - DEBUG - HostKey agreed: ssh-ed25519
+04:07:52 - paramiko.transport - DEBUG - Cipher agreed: aes128-ctr
+04:07:52 - paramiko.transport - DEBUG - MAC agreed: hmac-sha2-256
+04:07:52 - paramiko.transport - DEBUG - Compression agreed: none
+04:07:52 - paramiko.transport - DEBUG - Resetting outbound seqno after NEWKEYS due to strict mode
+04:07:52 - paramiko.transport - DEBUG - kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+04:07:52 - paramiko.transport - DEBUG - Switch to new keys ...
+04:07:52 - paramiko.transport - DEBUG - Resetting inbound seqno after NEWKEYS due to strict mode
+04:07:52 - paramiko.transport - DEBUG - Adding ssh-ed25519 host key for 192.168.56.12: b'b0ed1810552b004110824da0e17a23ef'
+04:07:52 - paramiko.transport - DEBUG - Trying SSH agent key b'b3f151614c22c35fdef356767a5946d2'
+04:07:52 - paramiko.transport - DEBUG - userauth is OK
+04:07:52 - paramiko.transport - INFO - Authentication (publickey) successful!
+04:07:52 - src.ssh_client - INFO - Successfully connected to 192.168.56.12
+04:07:52 - src.ssh_client - DEBUG - Connection active: True
+04:07:52 - test_ssh_client - INFO - Creating file /tmp/file1.txt with 1024 bytes on the remote machine.
+04:07:52 - src.ssh_client - DEBUG - Connection active: True
+04:07:52 - src.ssh_client - DEBUG - Executing command: head -c 1024 /dev/urandom > /tmp/file1.txt
+04:07:52 - paramiko.transport - DEBUG - [chan 0] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Received global request "hostkeys-00@openssh.com"
+04:07:53 - paramiko.transport - DEBUG - Rejecting "hostkeys-00@openssh.com" global request from server.
+04:07:53 - paramiko.transport - DEBUG - Debug msg: b'/home/adouhani/.ssh/authorized_keys:1: key options: agent-forwarding port-forwarding pty user-rc x11-forwarding'
+04:07:53 - paramiko.transport - DEBUG - [chan 0] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 0 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 0] Sesch channel 0 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 0] EOF received (0)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: head -c 1024 /dev/urandom > /tmp/file1.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 0] EOF sent (0)
+04:07:53 - test_ssh_client - DEBUG - File /tmp/file1.txt successfully created.
+04:07:53 - test_ssh_client - INFO - Creating file /tmp/file2.txt with 2048 bytes on the remote machine.
+04:07:53 - src.ssh_client - DEBUG - Connection active: True
+04:07:53 - src.ssh_client - DEBUG - Executing command: head -c 2048 /dev/urandom > /tmp/file2.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 1] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 1] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 1 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 1] Sesch channel 1 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 1] EOF received (1)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: head -c 2048 /dev/urandom > /tmp/file2.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 1] EOF sent (1)
+04:07:53 - test_ssh_client - DEBUG - File /tmp/file2.txt successfully created.
+04:07:53 - test_ssh_client - INFO - Creating file /tmp/file3.txt with 512 bytes on the remote machine.
+04:07:53 - src.ssh_client - DEBUG - Connection active: True
+04:07:53 - src.ssh_client - DEBUG - Executing command: head -c 512 /dev/urandom > /tmp/file3.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 2] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 2] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 2 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 2] Sesch channel 2 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 2] EOF received (2)
+04:07:53 - paramiko.transport - DEBUG - [chan 2] EOF sent (2)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: head -c 512 /dev/urandom > /tmp/file3.txt
+04:07:53 - test_ssh_client - DEBUG - File /tmp/file3.txt successfully created.
+04:07:53 - test_ssh_client - INFO - Creating file /tmp/file4.txt with 4096 bytes on the remote machine.
+04:07:53 - src.ssh_client - DEBUG - Connection active: True
+04:07:53 - src.ssh_client - DEBUG - Executing command: head -c 4096 /dev/urandom > /tmp/file4.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 3] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 3] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 3 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 3] Sesch channel 3 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 3] EOF received (3)
+04:07:53 - paramiko.transport - DEBUG - [chan 3] EOF sent (3)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: head -c 4096 /dev/urandom > /tmp/file4.txt
+04:07:53 - test_ssh_client - DEBUG - File /tmp/file4.txt successfully created.
+04:07:53 - test_ssh_client - INFO - Creating file /tmp/file5.txt with 256 bytes on the remote machine.
+04:07:53 - src.ssh_client - DEBUG - Connection active: True
+04:07:53 - src.ssh_client - DEBUG - Executing command: head -c 256 /dev/urandom > /tmp/file5.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 4] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 4] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 4 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 4] Sesch channel 4 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 4] EOF received (4)
+04:07:53 - paramiko.transport - DEBUG - [chan 4] EOF sent (4)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: head -c 256 /dev/urandom > /tmp/file5.txt
+04:07:53 - test_ssh_client - DEBUG - File /tmp/file5.txt successfully created.
+04:07:53 - test_ssh_client - INFO - All files have been created.
+04:07:53 - test_ssh_client - INFO - Testing SSH connection by checking if syslog exists.
+04:07:53 - src.ssh_client - DEBUG - Connection active: True
+04:07:53 - src.ssh_client - DEBUG - Executing command: ls /var/log/syslog
+04:07:53 - paramiko.transport - DEBUG - [chan 5] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 5] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 5 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 5] Sesch channel 5 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 5] EOF received (5)
+04:07:53 - paramiko.transport - DEBUG - [chan 5] EOF sent (5)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: ls /var/log/syslog
+04:07:53 - test_ssh_client - INFO - Step 1 : copying file from remote machine to local
+04:07:53 - paramiko.transport - DEBUG - [chan 6] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 6] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 6 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 6] Sesch channel 6 request ok
+04:07:53 - paramiko.transport.sftp - INFO - [chan 6] Opened sftp connection (server version 3)
+04:07:53 - paramiko.transport.sftp - DEBUG - [chan 6] stat(b'/var/log/syslog')
+04:07:53 - paramiko.transport.sftp - DEBUG - [chan 6] open(b'/var/log/syslog', 'rb')
+04:07:53 - paramiko.transport.sftp - DEBUG - [chan 6] open(b'/var/log/syslog', 'rb') -> 00000000
+04:07:53 - paramiko.transport.sftp - DEBUG - [chan 6] close(00000000)
+04:07:53 - paramiko.transport.sftp - INFO - [chan 6] sftp session closed.
+04:07:53 - paramiko.transport - DEBUG - [chan 6] EOF sent (6)
+04:07:53 - root - INFO - Successfully copied /var/log/syslog to ./syslog
+04:07:53 - test_ssh_client - INFO - File successfully copied to local machine
+04:07:53 - test_ssh_client - INFO - Step 2 : check CRON job occurrences per day
+04:07:53 - test_ssh_client - DEBUG - occurrences = {'Mar 6': 4}
+04:07:53 - test_ssh_client - INFO - Step 1 : check if file /tmp/file1.txt exists.
+04:07:53 - src.ssh_client - DEBUG - Connection active: True
+04:07:53 - src.ssh_client - DEBUG - Executing command: ls /tmp/file1.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 7] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 7] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 7 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 7] Sesch channel 7 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 7] EOF received (7)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: ls /tmp/file1.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 7] EOF sent (7)
+04:07:53 - test_ssh_client - INFO - Step 2 : check if size of /tmp/file1.txt is as expected.
+04:07:53 - src.ssh_client - DEBUG - Connection active: True
+04:07:53 - src.ssh_client - DEBUG - Executing command: stat --format=%s /tmp/file1.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 8] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 8] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 8 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 8] Sesch channel 8 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 8] EOF received (8)
+04:07:53 - paramiko.transport - DEBUG - [chan 8] EOF sent (8)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: stat --format=%s /tmp/file1.txt
+04:07:53 - test_ssh_client - INFO - Step 1 : check if file /tmp/file2.txt exists.
+04:07:53 - src.ssh_client - DEBUG - Connection active: True
+04:07:53 - src.ssh_client - DEBUG - Executing command: ls /tmp/file2.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 9] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 9] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 9 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 9] Sesch channel 9 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 9] EOF received (9)
+04:07:53 - paramiko.transport - DEBUG - [chan 9] EOF sent (9)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: ls /tmp/file2.txt
+04:07:53 - test_ssh_client - INFO - Step 2 : check if size of /tmp/file2.txt is as expected.
+04:07:53 - src.ssh_client - DEBUG - Connection active: True
+04:07:53 - src.ssh_client - DEBUG - Executing command: stat --format=%s /tmp/file2.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 10] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 10] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 10 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 10] Sesch channel 10 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 10] EOF received (10)
+04:07:53 - paramiko.transport - DEBUG - [chan 10] EOF sent (10)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: stat --format=%s /tmp/file2.txt
+04:07:53 - test_ssh_client - INFO - Step 1 : check if file /tmp/file3.txt exists.
+04:07:53 - src.ssh_client - DEBUG - Connection active: True
+04:07:53 - src.ssh_client - DEBUG - Executing command: ls /tmp/file3.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 11] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 11] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 11 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 11] Sesch channel 11 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 11] EOF received (11)
+04:07:53 - paramiko.transport - DEBUG - [chan 11] EOF sent (11)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: ls /tmp/file3.txt
+04:07:53 - test_ssh_client - INFO - Step 2 : check if size of /tmp/file3.txt is as expected.
+04:07:53 - src.ssh_client - DEBUG - Connection active: True
+04:07:53 - src.ssh_client - DEBUG - Executing command: stat --format=%s /tmp/file3.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 12] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 12] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 12 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 12] Sesch channel 12 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 12] EOF received (12)
+04:07:53 - paramiko.transport - DEBUG - [chan 12] EOF sent (12)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: stat --format=%s /tmp/file3.txt
+04:07:53 - test_ssh_client - INFO - Step 1 : check if file /tmp/file4.txt exists.
+04:07:53 - src.ssh_client - DEBUG - Connection active: True
+04:07:53 - src.ssh_client - DEBUG - Executing command: ls /tmp/file4.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 13] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 13] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 13 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 13] Sesch channel 13 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 13] EOF received (13)
+04:07:53 - paramiko.transport - DEBUG - [chan 13] EOF sent (13)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: ls /tmp/file4.txt
+04:07:53 - test_ssh_client - INFO - Step 2 : check if size of /tmp/file4.txt is as expected.
+04:07:53 - src.ssh_client - DEBUG - Connection active: True
+04:07:53 - src.ssh_client - DEBUG - Executing command: stat --format=%s /tmp/file4.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 14] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 14] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 14 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 14] Sesch channel 14 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 14] EOF received (14)
+04:07:53 - paramiko.transport - DEBUG - [chan 14] EOF sent (14)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: stat --format=%s /tmp/file4.txt
+04:07:53 - test_ssh_client - INFO - Step 1 : check if file /tmp/file5.txt exists.
+04:07:53 - src.ssh_client - DEBUG - Connection active: True
+04:07:53 - src.ssh_client - DEBUG - Executing command: ls /tmp/file5.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 15] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 15] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 15 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 15] Sesch channel 15 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 15] EOF received (15)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: ls /tmp/file5.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 15] EOF sent (15)
+04:07:53 - test_ssh_client - INFO - Step 2 : check if size of /tmp/file5.txt is as expected.
+04:07:53 - src.ssh_client - DEBUG - Connection active: True
+04:07:53 - src.ssh_client - DEBUG - Executing command: stat --format=%s /tmp/file5.txt
+04:07:53 - paramiko.transport - DEBUG - [chan 16] Max packet in: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - [chan 16] Max packet out: 32768 bytes
+04:07:53 - paramiko.transport - DEBUG - Secsh channel 16 opened.
+04:07:53 - paramiko.transport - DEBUG - [chan 16] Sesch channel 16 request ok
+04:07:53 - paramiko.transport - DEBUG - [chan 16] EOF received (16)
+04:07:53 - paramiko.transport - DEBUG - [chan 16] EOF sent (16)
+04:07:53 - src.ssh_client - INFO - Command executed successfully: stat --format=%s /tmp/file5.txt
+04:07:53 - test_ssh_client - INFO - Tearing down : closing SSH connnection and removing files...
+04:07:53 - src.ssh_client - INFO - SSH connection to 192.168.56.12 closed

@@ -1,0 +1,68 @@
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-8.3.5, pluggy-1.5.0
+rootdir: /local/adouhani/data_health_project
+configfile: pytest.ini
+plugins: html-4.1.1, metadata-3.1.1
+collected 3 items
+
+tests/test_ssh_client.py::test_ssh_connection 
+-------------------------------- live log setup --------------------------------
+04:16:56 - test_ssh_client - INFO - Setting up...
+04:16:56 - src.ssh_client - INFO - Attempting to connect to 192.168.56.12 on port 22
+04:16:56 - paramiko.transport - INFO - Connected (version 2.0, client OpenSSH_8.2p1)
+04:16:56 - paramiko.transport - INFO - Authentication (publickey) successful!
+04:16:56 - src.ssh_client - INFO - Successfully connected to 192.168.56.12
+04:16:56 - test_ssh_client - INFO - Creating file /tmp/file1.txt with 1024 bytes on the remote machine.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: head -c 1024 /dev/urandom > /tmp/file1.txt
+04:16:57 - test_ssh_client - INFO - Creating file /tmp/file2.txt with 2048 bytes on the remote machine.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: head -c 2048 /dev/urandom > /tmp/file2.txt
+04:16:57 - test_ssh_client - INFO - Creating file /tmp/file3.txt with 512 bytes on the remote machine.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: head -c 512 /dev/urandom > /tmp/file3.txt
+04:16:57 - test_ssh_client - INFO - Creating file /tmp/file4.txt with 4096 bytes on the remote machine.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: head -c 4096 /dev/urandom > /tmp/file4.txt
+04:16:57 - test_ssh_client - INFO - Creating file /tmp/file5.txt with 256 bytes on the remote machine.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: head -c 256 /dev/urandom > /tmp/file5.txt
+04:16:57 - test_ssh_client - INFO - All files have been created.
+-------------------------------- live log call ---------------------------------
+04:16:57 - test_ssh_client - INFO - Testing SSH connection by checking if syslog exists.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: ls /var/log/syslog
+PASSED                                                                   [ 33%]
+tests/test_ssh_client.py::test_file_copy 
+-------------------------------- live log call ---------------------------------
+04:16:57 - test_ssh_client - INFO - Step 1 : copying file from remote machine to local
+04:16:57 - paramiko.transport.sftp - INFO - [chan 6] Opened sftp connection (server version 3)
+04:16:57 - paramiko.transport.sftp - INFO - [chan 6] sftp session closed.
+04:16:57 - root - INFO - Successfully copied /var/log/syslog to ./syslog
+04:16:57 - test_ssh_client - INFO - File successfully copied to local machine
+04:16:57 - test_ssh_client - INFO - Step 2 : check CRON job occurrences per day
+PASSED                                                                   [ 66%]
+tests/test_ssh_client.py::test_check_files_on_remote 
+-------------------------------- live log call ---------------------------------
+04:16:57 - test_ssh_client - INFO - Step 1 : check if file /tmp/file1.txt exists.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: ls /tmp/file1.txt
+04:16:57 - test_ssh_client - INFO - Step 2 : check if size of /tmp/file1.txt is as expected.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: stat --format=%s /tmp/file1.txt
+04:16:57 - test_ssh_client - INFO - Step 1 : check if file /tmp/file2.txt exists.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: ls /tmp/file2.txt
+04:16:57 - test_ssh_client - INFO - Step 2 : check if size of /tmp/file2.txt is as expected.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: stat --format=%s /tmp/file2.txt
+04:16:57 - test_ssh_client - INFO - Step 1 : check if file /tmp/file3.txt exists.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: ls /tmp/file3.txt
+04:16:57 - test_ssh_client - INFO - Step 2 : check if size of /tmp/file3.txt is as expected.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: stat --format=%s /tmp/file3.txt
+04:16:57 - test_ssh_client - INFO - Step 1 : check if file /tmp/file4.txt exists.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: ls /tmp/file4.txt
+04:16:57 - test_ssh_client - INFO - Step 2 : check if size of /tmp/file4.txt is as expected.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: stat --format=%s /tmp/file4.txt
+04:16:57 - test_ssh_client - INFO - Step 1 : check if file /tmp/file5.txt exists.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: ls /tmp/file5.txt
+04:16:57 - test_ssh_client - INFO - Step 2 : check if size of /tmp/file5.txt is as expected.
+04:16:57 - src.ssh_client - INFO - Command executed successfully: stat --format=%s /tmp/file5.txt
+PASSED                                                                   [100%]
+------------------------------ live log teardown -------------------------------
+04:16:57 - test_ssh_client - INFO - Tearing down : closing SSH connnection and removing files...
+04:16:57 - src.ssh_client - INFO - SSH connection to 192.168.56.12 closed
+
+
+- Generated html report: file:///local/adouhani/data_health_project/logs/report.html -
+============================== 3 passed in 1.63s ===============================
