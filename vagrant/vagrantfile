@@ -1,0 +1,53 @@
+Vagrant.configure("2") do |config|
+  BOX = "ubuntu/focal64"
+  MEMORY = "3072" 
+  CPUS = 3 
+  VIDEO_MEMORY = "72" 
+  PACKAGES = "curl git docker.io python3 python3-pip console-data"
+  DESKTOP_PACKAGES = "ubuntu-desktop"
+  USERNAME = "adouhani"
+  PASSWORD = "adouhani"
+
+  SCRIPT_COMMON = <<-SHELL
+    sudo apt update && sudo apt upgrade -y
+    sudo apt install -y #{PACKAGES} #{DESKTOP_PACKAGES}
+    
+    # Configuration du clavier en AZERTY
+    echo 'XKBMODEL="pc105"' | sudo tee /etc/default/keyboard
+    echo 'XKBLAYOUT="fr"' | sudo tee -a /etc/default/keyboard
+    echo 'XKBVARIANT=""' | sudo tee -a /etc/default/keyboard
+    echo 'XKBOPTIONS=""' | sudo tee -a /etc/default/keyboard
+    sudo dpkg-reconfigure -f noninteractive keyboard-configuration
+    sudo systemctl restart console-setup
+    
+    sudo useradd -m -s /bin/bash #{USERNAME} || echo "#{USERNAME} already exist"
+    echo "#{USERNAME}:#{PASSWORD}" | sudo chpasswd
+    echo "#{USERNAME} ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/#{USERNAME}
+    
+    echo "root:#{PASSWORD}" | sudo chpasswd
+  SHELL
+
+  # Définition des VMs avec IP statiques
+  vms = [
+    {name: "vm1", memory: MEMORY, cpus: CPUS, gui: true, script: SCRIPT_COMMON, ip: "192.168.56.11"},
+    {name: "vm2", memory: MEMORY, cpus: CPUS, gui: true, script: SCRIPT_COMMON, ip: "192.168.56.12"}
+  ]
+  
+  vms.each do |vm|
+    config.vm.define vm[:name] do |machine|
+      machine.vm.box = BOX
+      machine.vm.network "private_network", ip: vm[:ip]
+      machine.vm.hostname = vm[:name]
+      machine.vm.provider "virtualbox" do |vb|
+        vb.name = vm[:name]
+        vb.memory = vm[:memory]
+        vb.cpus = vm[:cpus]
+        vb.gui = vm[:gui]
+        vb.customize ["modifyvm", :id, "--vram", VIDEO_MEMORY]
+        vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+      end
+      machine.vm.provision "shell", inline: vm[:script]
+    end
+  end
+end
+
